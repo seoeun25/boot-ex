@@ -1,1 +1,5 @@
 # spring-boot-ex
+
+## test
+profile: h2
+http://localhost:8080/h2-console
