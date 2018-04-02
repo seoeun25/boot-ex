@@ -1,5 +1,7 @@
 package com.lezhin.bootex;
 
+import com.lezhin.bootex.controller.ConstructorInjectedController;
+import com.lezhin.bootex.controller.GetterInjectedController;
 import com.lezhin.bootex.controller.MyController;
 
 import org.springframework.boot.SpringApplication;
@@ -24,6 +26,10 @@ public class BootExApplication {
         ApplicationContext ctx = SpringApplication.run(BootExApplication.class, args);
         MyController controller = (MyController) ctx.getBean("myController");
         controller.hello();
+
+        System.out.println(ctx.getBean(GetterInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
 
     }
 }
