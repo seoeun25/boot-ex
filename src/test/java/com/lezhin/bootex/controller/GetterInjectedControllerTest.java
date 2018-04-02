@@ -1,5 +1,6 @@
 package com.lezhin.bootex.controller;
 
+import com.lezhin.bootex.services.GetterGreetingService;
 import com.lezhin.bootex.services.GreetingServiceimpl;
 
 import org.junit.Before;
@@ -18,12 +19,12 @@ public class GetterInjectedControllerTest {
     @Before
     public void setUp() throws Exception {
         this.getterInjectedController = new GetterInjectedController();
-        this.getterInjectedController.setGreetingService(new GreetingServiceimpl());
+        this.getterInjectedController.setGreetingService(new GetterGreetingService());
     }
 
     @Test
     public void testGreeting() throws Exception {
-        assertEquals(GreetingServiceimpl.HELLO_AZRAEL, getterInjectedController.sayHello());
+        assertEquals("Hello - I was injected by the getter", getterInjectedController.sayHello());
     }
 
 

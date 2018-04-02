@@ -1,5 +1,6 @@
 package com.lezhin.bootex.controller;
 
+import com.lezhin.bootex.services.ConstructorGreetingService;
 import com.lezhin.bootex.services.GreetingServiceimpl;
 
 import org.junit.Before;
@@ -17,12 +18,12 @@ public class ConstructorInjectedControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.constructorInjectedController = new ConstructorInjectedController(new GreetingServiceimpl());
+        this.constructorInjectedController = new ConstructorInjectedController(new ConstructorGreetingService());
     }
 
     @Test
     public void testGreeting() throws Exception {
-        assertEquals(GreetingServiceimpl.HELLO_AZRAEL, constructorInjectedController.sayHello());
+        assertEquals("Hello - I was injected via the constructor !!!", constructorInjectedController.sayHello());
     }
 
 
